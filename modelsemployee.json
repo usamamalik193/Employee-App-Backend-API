@@ -1,0 +1,124 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "body": {
+        "id": 1,
+        "employeeName": "Pablo",
+        "employeeAddress": "Multan",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "033323"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "usama.jpeg",
+        "path": "uploads\\usama.jpeg",
+        "size": 88062
+      }
+    },
+    {
+      "body": {
+        "id": 2,
+        "employeeName": "Pablo Escobar",
+        "employeeAddress": "Raheem-yar-khan",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "03122123"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "usama.jpeg",
+        "path": "uploads\\usama.jpeg",
+        "size": 88062
+      }
+    },
+    {
+      "body": {
+        "id": 3,
+        "employeeName": "Sam12",
+        "employeeAddress": "H-34",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "2423535"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "usama.jpeg",
+        "path": "uploads\\usama.jpeg",
+        "size": 88062
+      }
+    },
+    {
+      "body": {
+        "id": 4,
+        "employeeName": "Sam13",
+        "employeeAddress": "H-34",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "2423535"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "usama.jpeg",
+        "path": "uploads\\usama.jpeg",
+        "size": 88062
+      }
+    },
+    {
+      "body": {
+        "id": 5,
+        "employeeName": "Ali",
+        "employeeAddress": "H-32",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "135345"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "usama.jpeg",
+        "path": "uploads\\usama.jpeg",
+        "size": 88062
+      }
+    },
+    {
+      "body": {
+        "employeeName": "Abdulla Raja",
+        "employeeAddress": "House No.7",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "03335193"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "usama.jpeg",
+        "path": "uploads\\usama.jpeg",
+        "size": 88062
+      }
+    }
+  ]
+}

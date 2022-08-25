@@ -1,0 +1,139 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "body": {
+        "id": 1,
+        "employeeName": "Pablo",
+        "employeeAddress": "Multan",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "033323"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./uploads",
+        "filename": "usama.jpeg",
+        "path": "uploads\\usama.jpeg",
+        "size": 88062
+      }
+    },
+    {
+      "body": {
+        "employeeName": "Abdulla Raja",
+        "employeeAddress": "Sohan Garden",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "123346"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "IMG_2177.JPG",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./../uploads",
+        "filename": "IMG_2177.JPG",
+        "path": "..\\uploads\\IMG_2177.JPG",
+        "size": 4757867
+      }
+    },
+    {
+      "body": {
+        "employeeName": "Saad",
+        "employeeAddress": "Multan",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "234678"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "IMG_2194.JPG",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./../uploads",
+        "filename": "IMG_2194.JPG",
+        "path": "..\\uploads\\IMG_2194.JPG",
+        "size": 4005874
+      }
+    },
+    {
+      "body": {
+        "employeeName": "Sherhyar",
+        "employeeAddress": "Islamabad",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "2345892"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "IMG_2441.JPG",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./../uploads",
+        "filename": "IMG_2441.JPG",
+        "path": "..\\uploads\\IMG_2441.JPG",
+        "size": 4438967
+      }
+    },
+    {
+      "body": {
+        "employeeName": "Ali",
+        "employeeAddress": "Karachi",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "345678"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "IMG_2181.JPG",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./../uploads",
+        "filename": "IMG_2181.JPG",
+        "path": "..\\uploads\\IMG_2181.JPG",
+        "size": 3970267
+      }
+    },
+    {
+      "body": {
+        "employeeName": "Abdulla ",
+        "employeeAddress": "H-43",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "03335193193"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "usama.jpeg",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./../uploads",
+        "filename": "usama.jpeg",
+        "path": "..\\uploads\\usama.jpeg",
+        "size": 88062
+      }
+    },
+    {
+      "body": {
+        "employeeName": "Abdulla Khan",
+        "employeeAddress": "House No.76 ",
+        "employeeStatus": "Employed",
+        "gender": "Male",
+        "empPhone": "23456"
+      },
+      "file": {
+        "fieldname": "picture",
+        "originalname": "IMG_2177.JPG",
+        "encoding": "7bit",
+        "mimetype": "image/jpeg",
+        "destination": "./../uploads",
+        "filename": "IMG_2177.JPG",
+        "path": "..\\uploads\\IMG_2177.JPG",
+        "size": 4757867
+      }
+    }
+  ]
+}
