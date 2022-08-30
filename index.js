@@ -24,7 +24,7 @@ app.use("/uploads", express.static(path.join("employee/uploads")));
 app.use(express.json())
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3006");
   next();
 });
 
@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
-//app.use(verifyJWT);
+app.use(verifyJWT)
 app.use('/employee', require('./routes/api/employeeRoutes'))
 
 // app.post("/employee", upload.single('picture'), (req,res) =>{

@@ -20,16 +20,18 @@ const handleLogin = async (req, res) => {
     if (!foundUser) return res.sendStatus(401); 
     if (pwd===foundUser.password){
         const roles = Object.values(foundUser.roles).filter(Boolean);
-        const accessToken = jwt.sign(
-            {
-                "UserInfo": {
-                    "username": foundUser.username,
-                    "roles": roles
-                }
-            },
-            process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '10s' }
-        );
+
+
+    const accessToken = jwt.sign(
+        {
+            "UserInfo": {
+                "username": foundUser.username,
+                "roles": roles
+            }
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: '10s' }
+    );
     
     const refreshToken = jwt.sign(
         { "username": foundUser.username },
