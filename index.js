@@ -33,6 +33,7 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));

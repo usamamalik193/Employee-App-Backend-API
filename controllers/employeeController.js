@@ -24,8 +24,8 @@ const createNewEmployee = async(req, res) => {
   let mm = date_ob.getMinutes();
   let ss = date_ob.getSeconds();
 
-  // let payload = {};
-  // payload["body"] = req.body;
+    // let payload = {};
+    // payload["body"] = req.body;
   // payload["file"] = req.file;
 
   //console.log(req.body);

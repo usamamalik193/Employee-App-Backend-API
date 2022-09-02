@@ -18,8 +18,8 @@ const upload = multer({ storage: storage });
 const router = express.Router();
 
 router.route('/')
-    .get(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Employee), employeesController.getAllEmployees)
-    .post(verifyRoles(ROLES_LIST.Admin), upload.any(), employeesController.createNewEmployee)
+    .get(employeesController.getAllEmployees)
+    .post(upload.any(), employeesController.createNewEmployee)
     //console.log(ROLES_LIST.Admin)
 
 module.exports = router;

@@ -14,12 +14,12 @@ const handleLogin = async (req, res) => {
     //console.log(user)
 
     if (!user || !pwd) return res.status(400).json({ 'message': 'Username and password are required.' });
-    const foundUser = await User.findOne({username:user}).exec();
+    const foundUser = await User.findOne({firstName:user}).exec();
     //console.log(foundUser);
     //const foundUser = usersDB.users.find(person => person.username === user);
     if (!foundUser) return res.sendStatus(401); 
     if (pwd===foundUser.password){
-        const roles = Object.values(foundUser.roles).filter(Boolean);
+        const roles = foundUser.roles;
 
 
     const accessToken = jwt.sign(
@@ -30,7 +30,7 @@ const handleLogin = async (req, res) => {
             }
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: '10s' }
+        { expiresIn: '10m' }
     );
     
     const refreshToken = jwt.sign(
