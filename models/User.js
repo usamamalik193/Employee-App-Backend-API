@@ -5,7 +5,13 @@ const userSchema= new Schema({
     firstName: String,
     lastName: String,
     city: String,
-    roles: Number,
+    roles: {
+        Admin: Number,
+        Employee: Number,
+        Editor: Number,
+        User: Number
+    
+    },
     password: String,
     refreshToken: String
 })

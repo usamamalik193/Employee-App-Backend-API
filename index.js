@@ -1,74 +1,93 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
-const https = require("https");
-const mongoose = require('mongoose');
-const fs = require("fs");
+const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
 const cors = require("cors");
-const corsOptions = require('./config/corsOption')
-const connectDB = require('./config/dbConn');
-const verifyJWT= require('./middleware/verifyJWT');
-const cookieParser= require('cookie-parser');
+const corsOptions = require("./config/corsOption");
+const connectDB = require("./config/dbConn");
+const verifyJWT = require("./middleware/verifyJWT");
+const cookieParser = require("cookie-parser");
+const http = require("http");
+const {Server} = require("socket.io");
+const chat = require('./models/chat');
+
 
 //Connect to MongoDB
 connectDB();
 
 app.use(cookieParser());
 
-// app.use(express.static('uploads'))
-const path = require("path"); 
-app.use("/uploads", express.static(path.join("employee/uploads")));  
-//console.log(express.static(path.join("employee-api/uploads")))
-
-app.use(express.json())
+app.use(express.json());
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3006");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3006", "http://localhost:8080");
   next();
 });
 
 
+const server = http.createServer(app);
+  const io = new Server(server, {
+    cors: {
+      origin: "http://localhost:3006",
+      meathods: ["GET", "POST"],
+    },
+  });
+
+  io.on("connection", (socket) => {
+    console.log(`User connected: ${socket.id}`);
+
+    socket.on("join_room", async(data)=>{
+
+        try{
+          let result= await chat.find({"room":data});
+          
+          socket.join(data);
+         //console.log(data);
+         // console.log(result);
+        
+          await socket.emit("joined", result);
+        }catch (e){
+          console.error(e);
+        }
+        // socket.join(data);
+        console.log(`User with id: ${socket.id} joined room: ${data}`);
+    })
+
+    socket.on("send_message", (data)=>{
+      chat.create({
+        room: data.room,
+        author: data.author, 
+        message: data.message, 
+        time: data.time });
+      console.log(data);
+      socket.to(data.room).emit("receive_message", data)
+    })
+    socket.on("disconnect", () => {
+      console.log("User disconnected", socket.id);
+    });
+  });
+
+  server.listen(8080);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-app.use('/register', require('./routes/register'));
-app.use('/auth', require('./routes/auth'));
-app.use('/refresh', require('./routes/refresh'));
-app.use('/logout', require('./routes/logout'));
-app.use(verifyJWT)
-app.use('/employee', require('./routes/api/employeeRoutes'))
+app.use("/register", require("./routes/register"));
+app.use("/auth", require("./routes/auth"));
+app.use("/refresh", require("./routes/refresh"));
+app.use("/logout", require("./routes/logout"));
+app.use("/navBarData", require("./routes/navBar"));
+app.use("/chat", require("./routes/chat"));
+app.use(verifyJWT);
+app.use("/employee", require("./routes/api/employeeRoutes"));
+app.use("/users", require("./routes/api/usersRoutes"));
 
-// app.post("/employee", upload.single('picture'), (req,res) =>{
 
-//   let payload = {};
-//   payload["body"] = req.body;
-//   payload["file"] = req.file;
 
-//   // data.setEmployees([...data.employees, payload]);
-//   // res.send(payload)
-//   //   res.status(201).json(data.employees);
-//   console.log({__dirname})
-//   fs.readFile(`${__dirname}\\models\\employee.json`, function (err, data) {
-//     console.log({data});
-//     var json = JSON.parse(data);
-
-//     json.data.push(payload);
-   
-//     fs.writeFile(
-//       `${__dirname}\\models\employee.json`,
-//       JSON.stringify(json, null, 2),
-//       function (err, data) {
-//         console.log(`data is written at:` + hh + "h:", mm + "m:", ss + "s");
-//       }
-//     );
-//     res.send(payload);
-//   });
-
-// })
-
-mongoose.connection.once('open',()=>{
+mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
-  app.listen(port, () => console.log(`app listening at http://localhost:${port}`));
-})
+  app.listen(port, () =>
+    console.log(`app listening at http://localhost:${port}`)
+  );
+});

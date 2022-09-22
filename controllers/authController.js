@@ -19,7 +19,10 @@ const handleLogin = async (req, res) => {
     //const foundUser = usersDB.users.find(person => person.username === user);
     if (!foundUser) return res.sendStatus(401); 
     if (pwd===foundUser.password){
-        const roles = foundUser.roles;
+        //For arry of roles
+        const roles = Object.values(foundUser.roles).filter(Boolean);
+        //For Single role
+        //const roles = foundUser.roles;
 
 
     const accessToken = jwt.sign(

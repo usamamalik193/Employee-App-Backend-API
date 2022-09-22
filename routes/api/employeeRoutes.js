@@ -15,11 +15,11 @@ var storage = multer.diskStorage({
     },
   });
 const upload = multer({ storage: storage });
-const router = express.Router();
 
+const router = express.Router();
 router.route('/')
-    .get(employeesController.getAllEmployees)
-    .post(upload.any(), employeesController.createNewEmployee)
+    .get(verifyRoles(ROLES_LIST.Admin,ROLES_LIST.Employee, ROLES_LIST.Editor), employeesController.getAllEmployees)
+    .post(verifyRoles(ROLES_LIST.Admin), upload.any(), employeesController.createNewEmployee)
     //console.log(ROLES_LIST.Admin)
 
 module.exports = router;

@@ -7,25 +7,9 @@ const handleNewUser = async (req, res) => {
     console.log(req.body);
     if (!fName || !password) return res.status(400).json({ 'message': 'Username and password are required.' });
 
-    
-    let roleNo;
-    switch(role) {
-        case "Admin":
-          roleNo=1000;
-          break;
-        case "Employee":
-            roleNo=2000;
-          break;
-          case "Editor":
-            roleNo=3000;
-          break;
-          case "User":
-            roleNo=4000;
-          break;
-        default:
-            roleNo=4000;
-      }
-        console.log(`Assigned RoleNo is: ${roleNo}`);
+    // check for duplicate usernames in the db
+    const duplicate = await User.findOne({ firstName: fName }).exec();
+    if (duplicate) return res.sendStatus(409); //Conflict 
     try {
        
         //create and store the new user
@@ -33,7 +17,7 @@ const handleNewUser = async (req, res) => {
             "firstName": fName ,
             "lastName" : lName,
             "city" : city,
-            "roles" : roleNo,
+            "roles" : role,
             "password": password
         });
 
